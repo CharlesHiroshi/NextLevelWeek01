@@ -8,7 +8,8 @@ app.get('/users', (request, response) => {
     'Charles',
     'Janete',
     'Thales',
-    'Jean'
+    'Jean',
+    'Leticia'
   ])
 })
 
