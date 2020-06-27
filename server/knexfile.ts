@@ -1,3 +1,5 @@
+// knexfile.ts para configuração do Knex gerenciar as ações do BD
+// ↓ Import do módulo Path para resolver o caminho para o Knex
 import path from 'path'
 
 module.exports = {
