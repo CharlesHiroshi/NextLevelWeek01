@@ -13,5 +13,5 @@ module.exports = {
   seeds: {
     directory: path.resolve(__dirname, 'src', 'database', 'seeds')
   },
-  useNullAsDefault: true,
+  useNullAsDefault: true, // ← Evita a mensagem de erro da campos Nulos
 }
