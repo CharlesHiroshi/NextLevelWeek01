@@ -76,11 +76,7 @@ const CreatePoint = () => {
           </legend>
           <div className="field">
             <label htmlFor="name">Nome da Entidade</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-            />
+            <input type="text" name="name" id="name" />
           </div>
           <div className="field-group">
             <div className="field">
