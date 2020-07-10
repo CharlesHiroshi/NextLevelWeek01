@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image, SafeAreaView } from 'react-native'
 import { Feather as Icon } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import MapView, { Marker } from 'react-native-maps'
@@ -13,8 +13,12 @@ const Points = () => {
     navigation.goBack()
   }
 
+  function handleNavigateToDetail() {
+    navigation.navigate('Detail')
+  }
+
   return (
-    <>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <TouchableOpacity onPress={handleNavigateBack}>
           <Icon name="arrow-left" size={20} color="#34cb79" />
@@ -23,7 +27,7 @@ const Points = () => {
         <Text style={styles.description}>Encontre no mapa um ponto de coleta.</Text>
         <View style={styles.mapContainer}>
           <MapView style={styles.map} initialRegion={{ latitude: -22.2496849, longitude: -54.7838398, latitudeDelta: 0.01, longitudeDelta: 0.01, }}>
-            <Marker style={styles.mapMarker} coordinate={{ latitude: -22.2496849, longitude: -54.7838398, }}>
+            <Marker style={styles.mapMarker} onPress={handleNavigateToDetail} coordinate={{ latitude: -22.2496849, longitude: -54.7838398, }}>
               <View style={styles.mapMarkerContainer}>
                 <Image style={styles.mapMarkerImage} source={{ uri: 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60', }} />
                 <Text style={styles.mapMarkerTitle}>Assai</Text>
@@ -60,7 +64,7 @@ const Points = () => {
           </TouchableOpacity>
         </ScrollView>
       </View>
-    </>
+    </SafeAreaView>
   )
 }
 
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 32,
-    paddingTop: 20 + Constants.statusBarHeight,
+    paddingTop: 20,
   },
 
   title: {
@@ -129,7 +133,7 @@ const styles = StyleSheet.create({
   itemsContainer: {
     flexDirection: 'row',
     marginTop: 16,
-    marginBottom: 32,
+    marginBottom: 0,
   },
 
   item: {
@@ -141,7 +145,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 16,
     paddingTop: 20,
-    paddingBottom: 16,
+    paddingBottom: 0,
     marginRight: 8,
     alignItems: 'center',
     justifyContent: 'space-between',
