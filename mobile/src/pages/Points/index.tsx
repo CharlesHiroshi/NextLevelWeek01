@@ -91,7 +91,7 @@ const Points = () => {
           {initialPosition[0] !== 0 && (
             <MapView style={styles.map} loadingEnabled={initialPosition[0] === 0} initialRegion={{ latitude: initialPosition[0], longitude: initialPosition[1], latitudeDelta: 0.01, longitudeDelta: 0.01, }}>
               {points.map(point => (
-                <Marker key={String(point.id)} style={styles.mapMarker} onPress={() => handleNavigateToDetail} coordinate={{ latitude: point.latitude, longitude: point.longitude, }}>
+                <Marker key={String(point.id)} style={styles.mapMarker} onPress={() => handleNavigateToDetail(point.id)} coordinate={{ latitude: point.latitude, longitude: point.longitude, }}>
                   <View style={styles.mapMarkerContainer}>
                     <Image style={styles.mapMarkerImage} source={{ uri: point.image, }} />
                     <Text style={styles.mapMarkerTitle}>{point.name}</Text>
